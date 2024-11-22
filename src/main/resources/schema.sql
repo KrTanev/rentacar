@@ -1,0 +1,30 @@
+CREATE TABLE IF NOT EXISTS USERS (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    address VARCHAR(255),
+    phone VARCHAR(50),
+    age INT,
+    has_accidents BOOLEAN,
+    is_deleted BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS CARS (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    brand VARCHAR(255),
+    model VARCHAR(255),
+    location VARCHAR(255),
+    price_per_day DOUBLE,
+    is_deleted BOOLEAN DEFAULT FALSE
+);
+
+CREATE TABLE IF NOT EXISTS OFFERS (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    user_id BIGINT NOT NULL,
+    car_id BIGINT NOT NULL,
+    rental_days INT NOT NULL,
+    total_price DOUBLE NOT NULL,
+    is_accepted BOOLEAN DEFAULT FALSE,
+    is_deleted BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (user_id) REFERENCES users(id),
+    FOREIGN KEY (car_id) REFERENCES cars(id)
+);
