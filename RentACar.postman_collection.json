@@ -1,0 +1,301 @@
+{
+	"info": {
+		"_postman_id": "b700b4bf-5693-4bfa-9c06-ba7694a60c10",
+		"name": "RentACar",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21171194"
+	},
+	"item": [
+		{
+			"name": "Get All Offers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8165/api/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"offers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Offer By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8165/api/offers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"offers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Offers By User",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8165/api/offers/user/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"offers",
+						"user",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Accept Offer",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8165/api/offers/1/accept",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"offers",
+						"1",
+						"accept"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Soft Delete Offer",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8165/api/offers/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"offers",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Offer",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\": 1,\n    \"carId\": 3,\n    \"rentalDays\": 7,\n    \"totalPrice\": 700.0\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8165/api/offers",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"offers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cars By Location",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8165/api/cars/location/Sofia",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"cars",
+						"location",
+						"Sofia"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cars By Id",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8165/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Car",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Nissan\",\n    \"model\": \"Altima\",\n    \"location\": \"Sofia\",\n    \"pricePerDay\": 130.0,\n    \"isDeleted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8165/api/cars",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"cars"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Car",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"brand\": \"Honda\",\n    \"model\": \"Civic\",\n    \"location\": \"Plovdiv\",\n    \"pricePerDay\": 150.0,\n    \"isDeleted\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8165/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Cars By Id Copy",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8165/api/cars/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8165",
+					"path": [
+						"api",
+						"cars",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
