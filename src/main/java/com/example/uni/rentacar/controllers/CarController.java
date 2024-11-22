@@ -1,8 +1,7 @@
 package com.example.uni.rentacar.controllers;
 
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -10,7 +9,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.uni.rentacar.model.Car;
@@ -24,9 +22,20 @@ public class CarController {
     @Autowired
     private CarService carService;
 
-    @GetMapping
-    public List<Car> getCarsByLocation(@RequestParam String location) {
-        return carService.getCarsByLocation(location);
+    public CarController(CarService carService) {
+        this.carService = carService;
+    }
+
+    @GetMapping("/location/{location}")
+    public ResponseEntity<Iterable<Car>> getCarsByLocation(@PathVariable String location) {
+        Iterable<Car> cars = carService.getCarsByLocation(location);
+        return ResponseEntity.ok(cars);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<Car> getCarById(@PathVariable Long id) {
+        Car car = carService.getCarById(id);
+        return car != null ? ResponseEntity.ok(car) : ResponseEntity.notFound().build();
     }
 
     @PostMapping
